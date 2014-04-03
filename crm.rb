@@ -27,10 +27,11 @@ end
 
 get "/contacts" do
   @contacts = @@rolodex.contacts
- erb :contacts
+  erb :contacts
 end
 
 get "/modify" do
+  "In Progress"
 end
 
 post "/new" do
