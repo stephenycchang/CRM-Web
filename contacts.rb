@@ -34,6 +34,6 @@ class Contact
   end
 
   def to_s
-    " User ID: #{id}\n First Name: #{first_name}\n Last Name: #{last_name}\n E-mail: #{email}\n Notes: #{note}"
+    " ID: #{id} -#{first_name} #{last_name} -  #{email} ---Notes: #{note}"
   end
 end

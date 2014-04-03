@@ -1,6 +1,8 @@
-<h1>All Contacts</h1>
+<fieldset>
+<legend>All Contacts</legend>
 <ul>
-<% @contacts.each do |contact| %>
-<li><%= contact.first_name %> <%= contact.last_name %></li>
-<% end %>
+  <% @contacts.each do |contact| %>
+  <li><b><%=contact.firstname%> <%=contact.lastname%></b></li>
+  <% end %>
 </ul>
+</fieldset>

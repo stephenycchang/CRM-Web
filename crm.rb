@@ -2,8 +2,9 @@ require 'sinatra'
 require './contacts.rb'
 require './rolodex.rb'
 
+
 def app_name
-  "CRM"
+  @app_name = "CRM"
 end
 
 @@rolodex = Rolodex.new
@@ -12,18 +13,38 @@ end
 @@rolodex.create_contact("Jenny","Johnson","yes@email.com","everything")
 @@rolodex.create_contact("Andy","Smitherine","nowhatsoever@email.com","addme")
 
-get'/' do
+get "/" do
   erb :index  
 end
 
+get "/edit" do
+  "In Progress"
+end
+
+get "/new" do
+  erb :add_contact
+end
+
 get "/contacts" do
-  @app_name = CRM
+  @contacts = @@rolodex.contacts
+ erb :contacts
+end
+
+get "/modify" do
+end
+
+post "/new" do
   erb :add_contact
 end 
 
-get "/contacts" do
-  @contacts = []
-  @contacts << Contacts.new("Julie", "Hache" , "julie@bitmakerlabs.com", "Instructor")
-  erb :contacts
+post "/edit" do
 end
 
+post "/contacts" do
+  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
+  @@rolodex.create_contact(params[:first_name], params[:last_name], params[:email], params[:note])
+  redirect to ("/contacts")
+end
+
+post "/modify" do
+end

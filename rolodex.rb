@@ -20,6 +20,10 @@ class Rolodex
     end  
   end
 
+  def contacts
+    return @contacts
+  end
+  
   def show_contacts
     @contacts.each do |contact|
       puts contact
