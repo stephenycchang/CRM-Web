@@ -20,42 +20,46 @@ class Rolodex
     end  
   end
 
-  def contacts
-    return @contacts
-  end
-  {}
-  def show_contacts
-    @contacts.each do |contact|
-      puts contact
-    end
+  def find(id)
+    @contacts.find {|contact| contact.id == id}
   end
 
-  def delete_contact(id)
-    @contacts.delete_if { |c| c.id == id}
-
+def contacts
+  return @contacts
+end
+{}
+def show_contacts
+  @contacts.each do |contact|
+    puts contact
   end
+end
 
-  def show_first_name 
-    @contacts.each do |contact|
-      puts "User #{contact.number}\n#{contact.firstname}"
-    end
-  end
+def delete_contact(id)
+  @contacts.delete_if { |c| c.id == id}
 
-  def show_last_name
-    @contacts.each do |contact|
-      puts contact.lastname
-    end
-  end
+end
 
-  def show_email
-    @contacts.each do |contact|
-      puts contact.e_mail
-    end
+def show_first_name 
+  @contacts.each do |contact|
+    puts "User #{contact.number}\n#{contact.firstname}"
   end
+end
 
-  def show_notes
-    @contacts.each do |contact|
-      puts contact.paper
-    end
+def show_last_name
+  @contacts.each do |contact|
+    puts contact.lastname
   end
+end
+
+def show_email
+  @contacts.each do |contact|
+    puts contact.e_mail
+  end
+end
+
+def show_notes
+  @contacts.each do |contact|
+    puts contact.paper
+  end
+end
 end
