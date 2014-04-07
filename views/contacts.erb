@@ -1,9 +1,17 @@
 <fieldset>
-<legend>All Contacts</legend>
-<ul>
-  <% @contacts.each do |contact| %>
-  <li><b><%=contact.firstname%> <%=contact.lastname%></b></li>
-  <% end %>
-</ul>
-<a href="/">Homepage</a>
+  <legend>All Contacts</legend>
+  <ul>
+    <% @contacts.each do |contact| %>
+    <li><b><%=contact.to_s%></b></li>
+
+    <a href="/contacts/<%= contact.id %>/edit">Edit</a>
+
+    <form action="/contacts/<%= contact.id %>" method="POST">
+      <input name="_method" type="hidden" value="delete"/>
+      <input type="submit" value="Delete" />
+    </form>
+
+    <% end %>
+  </ul>
+  <a href="/">Homepage</a>
 </fieldset>

@@ -50,8 +50,12 @@ table {
 
 
 body {
-  
-
+  width: 960px auto; 
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 250px;
+  font-family: Arial;
+  font-size: 26px;
 }
 
 html {
@@ -61,13 +65,13 @@ text-decoration: none;
 }
 
 a:link {
- color:pink;
+ color: green;
 }
 
 a:visited {
- color: red;
+ color: green;
 }
 
 a:hover {
- color: orange;
+ color: black;
 }
