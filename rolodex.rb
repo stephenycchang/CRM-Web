@@ -1,15 +1,20 @@
 class Rolodex
 
-  # def initialize
-  #   @contacts = []
-  # end
+  def initialize
+    @contacts = []
+  end
 
   def create_contact(counter, first_name, last_name, email, note)
     contact = Contact.new(counter, first_name, last_name, email, note)
     @contacts << contact
   end
 
+  # def create_contact_alternate(new_contact)
+  #   @contacts << new_contact
+  # end
+
   def modify_contact(id, new_first_name, new_last_name, new_email, new_note)
+    id = id.to_i
     @contacts.each do |contact|
       if contact.id == id
         contact.first_name = new_first_name if new_first_name != nil
