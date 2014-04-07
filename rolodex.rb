@@ -26,6 +26,7 @@ class Rolodex
   end
 
   def find(id)
+    id = id.to_i
     @contacts.find {|contact| contact.id == id}
   end
 
@@ -40,6 +41,7 @@ def show_contacts
 end
 
 def delete_contact(id)
+  id = id.to_i
   @contacts.delete_if { |c| c.id == id}
 
 end

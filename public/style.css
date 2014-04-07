@@ -50,25 +50,14 @@ table {
 
 
 body {
-  background-color: blue;
+  
+
 }
 
 html {
-background-color: #D6F2B1;
+background-image: url('notepad.jpg');
 background-size: cover;
 text-decoration: none;
-}
-
-.table {
-  color:red;
-}
-
-#lebron {
-
-}
-
-a {
-  
 }
 
 a:link {

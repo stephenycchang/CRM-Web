@@ -12,17 +12,13 @@ end
 
 @@rolodex = Rolodex.new
 
-# @@rolodex.create_contact("John","Smith","no@email.com","none")
-# @@rolodex.create_contact("Jenny","Johnson","yes@email.com","everything")
-# @@rolodex.create_contact("Andy","Smitherine","nowhatsoever@email.com","addme")
-
 get "/" do
   erb :index  
 end
 
-get "/edit" do
-  @@rolodex.show_contacts
-
+get "/delete" do
+  @contacts = @@rolodex.show_contacts
+  erb :delete
 end
 
 get "/new" do
@@ -43,7 +39,9 @@ post "/new" do
   erb :add_contact
 end 
 
-post "/edit" do
+post "/delete" do
+  @@rolodex.delete_contact(params[:id])
+  redirect to ("contacts")
 end
 
 post "/contacts" do
