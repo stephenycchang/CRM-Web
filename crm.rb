@@ -1,6 +1,9 @@
 require 'sinatra'
 require './contacts.rb'
 require './rolodex.rb'
+# require 'data_mapper'
+
+# DataMapper.setup(:default, "sqlite3:database.sqlite3")
 
 
 def app_name
@@ -18,7 +21,8 @@ get "/" do
 end
 
 get "/edit" do
-  "In Progress"
+  @@rolodex.show_contacts
+
 end
 
 get "/new" do
@@ -31,7 +35,8 @@ get "/contacts" do
 end
 
 get "/modify" do
-  "In Progress"
+  @contacts = @@rolodex.show_contacts
+  erb :modify
 end
 
 post "/new" do
@@ -42,10 +47,13 @@ post "/edit" do
 end
 
 post "/contacts" do
-  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  @@rolodex.create_contact(params[:first_name], params[:last_name], params[:email], params[:note])
+  new_contact = Contact.new(params[:id],params[:first_name], params[:last_name], params[:email], params[:note])
+  @@rolodex.create_contact(params[:counter],params[:first_name], params[:last_name], params[:email], params[:note])
+  # contacts = Contact.new(params[:id], params[:first_name], params[:last_name], params[:email], params[:note])
+  @@rolodex.modify_contact(params[:id], params[:new_first_name], params[:new_last_name], params[:new_email], params[:new_note])
   redirect to ("/contacts")
 end
 
 post "/modify" do
+  erb :modify_contact
 end

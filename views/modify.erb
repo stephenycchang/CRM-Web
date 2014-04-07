@@ -1,0 +1,26 @@
+<h1>Modify a Contact</h1>
+
+<legend>All Contacts</legend>
+<ul>
+  <% @contacts.each do |contact| %>
+  <li><b><%=contact.to_s%></b></li>
+  <% end %>
+</ul>
+
+<h2>Which contact would you like to modify?</h2>
+<form action="contacts" method="POST">
+  <fieldset>
+    <legend>Modify Contact</legend>
+    <select name="status">
+      <option value="1">Mr.</option>
+      <option value="2">Ms.</option>
+      <option value="3">Mrs.</option>
+    </select>
+    <input type="text" name="id" autofocus required placeholder="ID"/>
+    <input type="text" name="new_first_name" autofocus placeholder="First Name"/>
+    <input type="text" name="new_last_name" autofocus placeholder="Last Name"/>
+    <input type="email" name="new_email" autofocus placeholder="E-mail"/>
+    <input type="text" name="new_note" autofocus placeholder="Notes"/>
+    <input type="submit" name="submit" value ="Submit"/>
+  </fieldset>
+</form>
