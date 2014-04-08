@@ -2,7 +2,8 @@
   <legend>All Contacts</legend>
   <ul>
     <% @contacts.each do |contact| %>
-    <li><b><%=contact.to_s%></b></li>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %></a></li>
+  <% end %>
 
     <a href="/contacts/<%= contact.id %>/edit">Edit</a>
 
